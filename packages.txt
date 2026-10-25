@@ -1,0 +1,43 @@
+# Eclipse: everything to install (pacman), one per line. install.sh reads this
+# apps
+firefox
+nautilus
+loupe
+papers
+ghostty
+gnome-text-editor
+gnome-calendar
+# fonts
+ttf-ibm-plex
+# tools the keybinds use
+rofi
+cliphist
+wl-clipboard
+grim
+slurp
+hyprlock
+wireplumber
+brightnessctl
+playerctl
+# the bar
+waybar
+ttf-nerd-fonts-symbols-mono
+wlogout
+htop
+# the bar's Wi-Fi click (Network Connections) and Bluetooth
+networkmanager
+nm-connection-editor
+bluez
+bluez-utils
+blueman
+# notifications, wallpaper, idle, admin prompts
+mako
+hyprpaper
+hypridle
+hyprpolkitagent
+# Qt apps in Eclipse colors: qt6ct, the Breeze style and its dark icons
+qt6ct
+breeze
+breeze-icons
+# GTK 3 apps (Network Connections, Blueman) dark like the GTK 4 ones
+adw-gtk-theme

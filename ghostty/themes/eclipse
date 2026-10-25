@@ -1,0 +1,22 @@
+# Made by theme/generate.sh from theme/palette.sh; edit the palette, not this file
+background = 14121a
+foreground = e8e2ee
+cursor-color = f06595
+selection-background = 3a2148
+selection-foreground = e8e2ee
+palette = 0=#2a2433
+palette = 1=#ff6b8a
+palette = 2=#8ce99a
+palette = 3=#ffd480
+palette = 4=#82aaff
+palette = 5=#f06595
+palette = 6=#7fdbca
+palette = 7=#e8e2ee
+palette = 8=#4a4157
+palette = 9=#ff8fa3
+palette = 10=#b2f2bb
+palette = 11=#ffe3a3
+palette = 12=#a5c4ff
+palette = 13=#ff9ec0
+palette = 14=#a3f0e1
+palette = 15=#ffffff

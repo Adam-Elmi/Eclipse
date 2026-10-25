@@ -1,0 +1,20 @@
+/* Made by theme/generate.sh from theme/palette.sh; edit the palette, not this file */
+* {
+    bg: #14121a;
+    surface: #1c1924;
+    panel: #17151e;
+    header: #0f0d14;
+    line: #2a2433;
+    line-soft: #211c29;
+    ink: #e8e2ee;
+    muted: #a79fb5;
+    faint: #6c6479;
+    accent: #f06595;
+    accent-hover: #ff7aa8;
+    plum: #9d4edd;
+    select: #3a2148;
+    ok: #69db7c;
+    warn: #ffa94d;
+    error: #ff6b8a;
+    font: "IBM Plex Sans 11";
+}

@@ -1,0 +1,17 @@
+/* Made by theme/generate.sh from theme/palette.sh; edit the palette, not this file */
+@define-color bg #14121a;
+@define-color surface #1c1924;
+@define-color panel #17151e;
+@define-color header #0f0d14;
+@define-color line #2a2433;
+@define-color line_soft #211c29;
+@define-color ink #e8e2ee;
+@define-color muted #a79fb5;
+@define-color faint #6c6479;
+@define-color accent #f06595;
+@define-color accent_hover #ff7aa8;
+@define-color plum #9d4edd;
+@define-color select #3a2148;
+@define-color ok #69db7c;
+@define-color warn #ffa94d;
+@define-color error #ff6b8a;

@@ -1,0 +1,25 @@
+# ###################
+# Ghostty in Eclipse: the Eclipse Night colors (themes/eclipse, written by theme/generate.sh),
+# a see-through background that Hyprland blurs, a soft rose → plum glow from the bottom-right
+# corner (shaders/eclipse-glow.glsl), Plex Mono, some room around the text, no title bar
+# (Hyprland draws the frame), a blinking rose bar cursor
+# ###################
+
+theme = eclipse
+background-opacity = 0.86
+custom-shader = ~/.config/ghostty/shaders/eclipse-glow.glsl
+custom-shader-animation = false
+font-family = IBM Plex Mono
+font-size = 11
+
+window-padding-x = 14
+window-padding-y = 12
+window-padding-balance = true
+window-decoration = none
+
+cursor-style = bar
+cursor-style-blink = true
+mouse-hide-while-typing = true
+
+copy-on-select = clipboard
+confirm-close-surface = false

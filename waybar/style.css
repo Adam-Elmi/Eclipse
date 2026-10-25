@@ -1,0 +1,145 @@
+/* ###################
+   The Eclipse bar: a dark gradient with a faint rose light behind the clock and a thin rose → plum
+   line underneath; the current workspace is a glowing rose → plum pill.
+   Colors come from colors.css (made by theme/generate.sh)
+   ################### */
+@import "colors.css";
+
+* {
+    font-family: "IBM Plex Sans", "Symbols Nerd Font Mono";
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    color: @ink;
+    background-color: @header;
+    background-image:
+        radial-gradient(ellipse 22% 180% at 50% 50%, alpha(@accent, 0.16), transparent),
+        linear-gradient(90deg, @header, @surface 50%, @header);
+    box-shadow: inset 0 -1px alpha(@plum, 0.45);
+}
+
+tooltip {
+    background: @surface;
+    border: 1px solid alpha(@accent, 0.35);
+    border-radius: 8px;
+}
+tooltip label {
+    color: @ink;
+}
+
+/* workspaces: small squares of number; the one you're on is a glowing rose → plum pill */
+#custom-ws1 {
+    margin-left: 6px;
+}
+#custom-ws1,
+#custom-ws2,
+#custom-ws3,
+#custom-ws4,
+#custom-ws5 {
+    min-width: 14px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0 4px;
+    color: @faint;
+    border-radius: 6px;
+}
+#custom-ws1:hover,
+#custom-ws2:hover,
+#custom-ws3:hover,
+#custom-ws4:hover,
+#custom-ws5:hover {
+    color: @accent;
+    background: alpha(@accent, 0.10);
+}
+#custom-ws1.active,
+#custom-ws2.active,
+#custom-ws3.active,
+#custom-ws4.active,
+#custom-ws5.active {
+    color: #ffffff;
+    font-weight: 600;
+    background-image: linear-gradient(135deg, @accent, @plum);
+    box-shadow: 0 0 8px alpha(@accent, 0.55);
+}
+
+/* hardware health, after the workspaces: quiet, rose on hover */
+#cpu {
+    margin-left: 10px;
+}
+#cpu,
+#memory,
+#temperature,
+#disk {
+    padding: 0 10px;
+    color: @muted;
+}
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#disk:hover {
+    color: @accent;
+}
+#cpu.warning,
+#memory.warning,
+#temperature.warning,
+#disk.warning {
+    color: @warn;
+}
+#cpu.critical,
+#memory.critical,
+#temperature.critical,
+#disk.critical {
+    color: @error;
+}
+
+#clock {
+    font-weight: 600;
+    color: @ink;
+    text-shadow: 0 0 6px alpha(@accent, 0.6);
+}
+
+/* the right side: quiet text, rose on hover */
+#language,
+#network,
+#bluetooth,
+#pulseaudio,
+#battery {
+    padding: 0 10px;
+    color: @muted;
+}
+#language:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#battery:hover {
+    color: @accent;
+}
+/* the power icon, at the end: rose */
+#custom-power {
+    padding: 0 12px 0 8px;
+    margin-right: 4px;
+    color: @accent;
+}
+#custom-power:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px alpha(@accent, 0.9);
+}
+#pulseaudio.muted,
+#network.disconnected,
+#bluetooth.off,
+#bluetooth.disabled {
+    color: @faint;
+}
+#battery.charging {
+    color: @ok;
+}
+#battery.warning:not(.charging) {
+    color: @warn;
+}
+#battery.critical:not(.charging) {
+    color: @error;
+}

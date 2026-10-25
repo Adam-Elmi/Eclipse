@@ -1,0 +1,14 @@
+/* ###################
+   rofi: apps (drun) with their icons; Super+Space opens it. The look is in eclipse.rasi
+   ################### */
+configuration {
+    modi: "drun";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    display-drun: "Apps";
+    drun-display-format: "{name}";
+    matching: "fuzzy";
+    sort: true;
+}
+
+@theme "eclipse"

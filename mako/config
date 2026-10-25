@@ -1,0 +1,24 @@
+# Made by theme/generate.sh from theme/palette.sh; edit the palette, not this file
+font=IBM Plex Sans 11
+background-color=#1c1924f0
+text-color=#e8e2ee
+border-color=#f0659566
+progress-color=over #f06595
+border-size=1
+border-radius=8
+padding=12,14
+margin=10
+width=360
+max-visible=4
+default-timeout=6000
+anchor=top-right
+icons=1
+max-icon-size=40
+format=<b>%s</b>\n%b
+
+[urgency=low]
+text-color=#a79fb5
+
+[urgency=critical]
+border-color=#ff6b8a
+default-timeout=0

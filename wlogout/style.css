@@ -1,0 +1,43 @@
+/* ###################
+   The Eclipse power menu (wlogout, the bar's power icon): the screen dimmed and blurred, five dark
+   glass buttons; the one under the mouse (or chosen with the arrow keys) glows rose → plum.
+   Keys: L lock, E log out, S sleep, R restart, P shut down, Esc closes. The buttons are listed
+   in ./layout; colors from the bar's colors.css (theme/generate.sh)
+   ################### */
+@import url("../waybar/colors.css");
+
+* {
+    background-image: none;
+    box-shadow: none;
+    font-family: "IBM Plex Sans";
+}
+
+window {
+    background-color: alpha(@header, 0.72);
+}
+
+button {
+    margin: 12px;
+    color: @muted;
+    font-size: 15px;
+    background-color: alpha(@surface, 0.88);
+    background-repeat: no-repeat;
+    background-position: center 42%;
+    background-size: 28%;
+    border: 1px solid @line;
+    border-radius: 18px;
+}
+
+button:focus,
+button:hover {
+    color: #ffffff;
+    background-color: alpha(@accent, 0.16);
+    border-color: @accent;
+    box-shadow: 0 0 24px alpha(@accent, 0.45), inset 0 0 40px alpha(@plum, 0.35);
+}
+
+#lock     { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout   { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend  { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#reboot   { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }

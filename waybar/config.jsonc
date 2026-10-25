@@ -1,0 +1,145 @@
+// ###################
+// The Eclipse bar: workspaces on the left, the clock in the middle, then keyboard layout,
+// network, volume and battery on the right. Icons from the Nerd Fonts symbol font; text in Plex
+// ###################
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+    "modules-left": ["custom/ws1", "custom/ws2", "custom/ws3", "custom/ws4", "custom/ws5", "cpu", "memory", "temperature", "disk"],
+    "modules-center": ["clock"],
+    "modules-right": ["hyprland/language", "network", "bluetooth", "pulseaudio", "battery", "custom/power"],
+
+    // workspaces: at most five buttons (workspaces.py); click one to go there, scroll to step
+    "custom/ws1": {
+        "exec": "$HOME/.config/waybar/workspaces.py show 1", "return-type": "json",
+        "on-click": "$HOME/.config/waybar/workspaces.py click 1",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+    "custom/ws2": {
+        "exec": "$HOME/.config/waybar/workspaces.py show 2", "return-type": "json",
+        "on-click": "$HOME/.config/waybar/workspaces.py click 2",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+    "custom/ws3": {
+        "exec": "$HOME/.config/waybar/workspaces.py show 3", "return-type": "json",
+        "on-click": "$HOME/.config/waybar/workspaces.py click 3",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+    "custom/ws4": {
+        "exec": "$HOME/.config/waybar/workspaces.py show 4", "return-type": "json",
+        "on-click": "$HOME/.config/waybar/workspaces.py click 4",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+    "custom/ws5": {
+        "exec": "$HOME/.config/waybar/workspaces.py show 5", "return-type": "json",
+        "on-click": "$HOME/.config/waybar/workspaces.py click 5",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+
+    // hardware health: CPU, memory, CPU temperature, disk; orange when high, red when very high.
+    // Click any of them: htop in a small window, click again to close it (htop.sh)
+    "cpu": {
+        "on-click": "$HOME/.config/waybar/htop.sh",
+        "interval": 5,
+        "format": "\udb81\udcc5  {usage}%",
+        "states": { "warning": 80, "critical": 95 }
+    },
+    "memory": {
+        "on-click": "$HOME/.config/waybar/htop.sh",
+        "interval": 5,
+        "format": "\udb80\udf5b  {percentage}%",
+        "tooltip-format": "{used:0.1f} of {total:0.1f} GB",
+        "states": { "warning": 80, "critical": 95 }
+    },
+    // the CPU's own sensor (k10temp), by its fixed device path
+    "temperature": {
+        "on-click": "$HOME/.config/waybar/htop.sh",
+        "interval": 5,
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp1_input",
+        "warning-threshold": 80,
+        "critical-threshold": 90,
+        "format": "\uf2c9  {temperatureC}°C"
+    },
+    // storage: /home, where your files are (the system partition / has plenty of room)
+    "disk": {
+        "on-click": "$HOME/.config/waybar/htop.sh",
+        "interval": 60,
+        "path": "/home",
+        "format": "\uf0a0  {percentage_used}%",
+        "tooltip-format": "Your files (/home): {free} free of {total}",
+        "states": { "warning": 85, "critical": 95 }
+    },
+
+    // the time; hover for the full date, click to open the calendar (GNOME Calendar)
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %d %B %Y}",
+        "on-click": "gnome-calendar"
+    },
+
+    // the keyboard layout: EN or AR; click (or Super+K) to switch
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "EN",
+        "format-ar": "AR",
+        "on-click": "hyprctl switchxkblayout all next"
+    },
+
+    // click: NetworkManager's own window (Network Connections)
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  Wired",
+        "format-disconnected": "  Offline",
+        "tooltip-format-wifi": "{essid} · {signalStrength}% · {ipaddr}",
+        "tooltip-format-ethernet": "{ifname} · {ipaddr}",
+        "max-length": 24,
+        "on-click": "nm-connection-editor"
+    },
+
+    // Bluetooth: the connected device's name, or on / off; click to open Blueman
+    "bluetooth": {
+        "format": "\udb80\udcaf  On",
+        "format-off": "\udb80\udcb2  Off",
+        "format-disabled": "\udb80\udcb2  Off",
+        "format-connected": "\udb80\udcb1  {device_alias}",
+        "format-no-controller": "",
+        "tooltip-format": "{controller_alias} · {status}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "max-length": 24,
+        "on-click": "blueman-manager"
+    },
+
+    // volume: scroll to change it, click to mute
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "  Muted",
+        "format-icons": { "default": ["", "", ""] },
+        "scroll-step": 5,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    // the battery: orange at 25 %, red at 10 %
+    "battery": {
+        "states": { "warning": 25, "critical": 10 },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{timeTo}"
+    },
+
+    // the power menu: lock, log out, sleep, restart, shut down (wlogout); click again to close
+    "custom/power": {
+        "format": "\uf011",
+        "tooltip-format": "Lock, log out, sleep, restart, shut down",
+        "on-click": "pkill -x wlogout || wlogout -b 5 -T 250 -B 250 -L 120 -R 120"
+    }
+}

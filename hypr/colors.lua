@@ -1,0 +1,21 @@
+-- Made by theme/generate.sh from theme/palette.sh; edit the palette, not this file
+return {
+    bg = "rgb(14121a)",
+    surface = "rgb(1c1924)",
+    panel = "rgb(17151e)",
+    header = "rgb(0f0d14)",
+    line = "rgb(2a2433)",
+    line_soft = "rgb(211c29)",
+    ink = "rgb(e8e2ee)",
+    muted = "rgb(a79fb5)",
+    faint = "rgb(6c6479)",
+    accent = "rgb(f06595)",
+    accent_hover = "rgb(ff7aa8)",
+    plum = "rgb(9d4edd)",
+    select = "rgb(3a2148)",
+    ok = "rgb(69db7c)",
+    warn = "rgb(ffa94d)",
+    error = "rgb(ff6b8a)",
+    font = "IBM Plex Sans",
+    mono = "IBM Plex Mono",
+}

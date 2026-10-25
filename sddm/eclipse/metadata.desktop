@@ -1,0 +1,9 @@
+[SddmGreeterTheme]
+Name=Eclipse
+Description=The Eclipse login screen: the moonlit wallpaper, the time with a rose glow, a rose → plum password field
+Author=Adam Elmi
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+QtVersion=6
