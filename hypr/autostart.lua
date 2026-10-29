@@ -1,6 +1,7 @@
 -- ###################
 -- What starts with Hyprland: the bar, notifications, the wallpaper, idle (dim / lock / screen
--- off), the password prompt for admin actions, and the clipboard history
+-- off), the password prompt for admin actions, and the clipboard history. (Wi-Fi's icon,
+-- nm-applet, starts by itself: the system's autostart entry, run by uwsm)
 -- ###################
 
 hl.on("hyprland.start", function()
