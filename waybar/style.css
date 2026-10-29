@@ -104,19 +104,23 @@ tooltip label {
 
 /* the right side: quiet text, rose on hover */
 #language,
-#network,
-#bluetooth,
+#tray,
+#idle_inhibitor,
 #pulseaudio,
 #battery {
     padding: 0 10px;
     color: @muted;
 }
 #language:hover,
-#network:hover,
-#bluetooth:hover,
+#idle_inhibitor:hover,
 #pulseaudio:hover,
 #battery:hover {
     color: @accent;
+}
+/* coffee mode on: the cup in rose, softly lit */
+#idle_inhibitor.activated {
+    color: @accent;
+    text-shadow: 0 0 6px alpha(@accent, 0.6);
 }
 /* the power icon, at the end: rose */
 #custom-power {
@@ -128,10 +132,7 @@ tooltip label {
     color: #ffffff;
     text-shadow: 0 0 8px alpha(@accent, 0.9);
 }
-#pulseaudio.muted,
-#network.disconnected,
-#bluetooth.off,
-#bluetooth.disabled {
+#pulseaudio.muted {
     color: @faint;
 }
 #battery.charging {
