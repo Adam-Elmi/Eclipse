@@ -17,11 +17,11 @@ hl.window_rule({
     center = true,
 })
 
--- the bar's clicks (Network Connections, Blueman, htop): small floating windows
--- in the middle
+-- the bar's windows (Wi-Fi's Edit Connections and password prompts, Blueman, htop): small
+-- floating windows in the middle
 hl.window_rule({
     name = "bar-popups-float",
-    match = { class = "^(nm-connection-editor|\\.?blueman-manager.*|dev\\.eclipse\\.htop)$" },
+    match = { class = "^(nm-connection-editor|nm-applet|\\.?blueman-manager.*|dev\\.eclipse\\.htop)$" },
     float = true,
     center = true,
     size = "760 520",
