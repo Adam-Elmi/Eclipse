@@ -9,7 +9,7 @@
     "spacing": 4,
     "modules-left": ["custom/ws1", "custom/ws2", "custom/ws3", "custom/ws4", "custom/ws5", "cpu", "memory", "temperature", "disk"],
     "modules-center": ["clock"],
-    "modules-right": ["hyprland/language", "network", "bluetooth", "pulseaudio", "battery", "custom/power"],
+    "modules-right": ["hyprland/language", "tray", "idle_inhibitor", "pulseaudio", "battery", "custom/power"],
 
     // workspaces: at most five buttons (workspaces.py); click one to go there, scroll to step
     "custom/ws1": {
@@ -94,31 +94,24 @@
     },
 
     // click: NetworkManager's own window (Network Connections)
-    "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "  Wired",
-        "format-disconnected": "  Offline",
-        "tooltip-format-wifi": "{essid} · {signalStrength}% · {ipaddr}",
-        "tooltip-format-ethernet": "{ifname} · {ipaddr}",
-        "max-length": 24,
-        "on-click": "nm-connection-editor"
+    // Wi-Fi and Bluetooth: nm-applet's and Blueman's icons (the system starts both at login).
+    // Wi-Fi: click for the networks (connect, disconnect, on / off); Bluetooth: click for Blueman
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
     },
 
     // Bluetooth: the connected device's name, or on / off; click to open Blueman
-    "bluetooth": {
-        "format": "\udb80\udcaf  On",
-        "format-off": "\udb80\udcb2  Off",
-        "format-disabled": "\udb80\udcb2  Off",
-        "format-connected": "\udb80\udcb1  {device_alias}",
-        "format-no-controller": "",
-        "tooltip-format": "{controller_alias} · {status}",
-        "tooltip-format-connected": "{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}",
-        "max-length": 24,
-        "on-click": "blueman-manager"
+    // volume: scroll to change it, click to mute
+    // coffee mode: click the cup, and the screen never dims, locks or turns off while you're idle
+    // (hypridle respects it); click again to go back. Off at each login
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": { "activated": "\udb80\udd76", "deactivated": "\udb81\udeca" },
+        "tooltip-format-activated": "Coffee mode: on (no dimming, locking or screen off)",
+        "tooltip-format-deactivated": "Coffee mode: off (click to stay awake)"
     },
 
-    // volume: scroll to change it, click to mute
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-muted": "  Muted",
