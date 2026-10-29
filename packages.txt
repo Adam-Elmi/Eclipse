@@ -24,9 +24,9 @@ waybar
 ttf-nerd-fonts-symbols-mono
 wlogout
 htop
-# the bar's Wi-Fi click (Network Connections) and Bluetooth
+# Wi-Fi and Bluetooth: nm-applet's and Blueman's icons in the bar
 networkmanager
-nm-connection-editor
+network-manager-applet
 bluez
 bluez-utils
 blueman
